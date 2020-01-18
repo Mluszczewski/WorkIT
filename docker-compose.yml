@@ -9,3 +9,9 @@ web:
       - db
 db:
     image: mongo:3.4
+    container_name: 'mongo-container'
+    environment: 
+      - MONGO_INIT_DATABASE=workit
+      - MONGO_INIT_ROOT_USERNAME=admin
+      - MONGO_INIT_ROOT_PASSWORD=admin
+    
