@@ -1,9 +1,5 @@
 # WorkIT
 
-### Build
+### Build & Run
 
-> docker-compose build
-
-### Run
-
-> docker-compose up
+> docker-compose up --build
