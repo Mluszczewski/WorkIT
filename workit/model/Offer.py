@@ -1,5 +1,4 @@
 from workit.const import CATEGORIES, CURRENCIES, POLISH_CHARS
-from uuid import uuid4
 from re import sub
 
 
@@ -24,7 +23,6 @@ class Offer:
         self.techstack = techstack
         self.experience = experience
         self.category = self._classify()
-        self._id = self._generate_id()
 
     def __repr__(self):
         return str(self.__dict__)
@@ -122,7 +120,7 @@ class Offer:
 
     def _classify(self):
         description = sub(r'-', '', self.title).lower()
-        description = sub(r'[^a-zA-Z.+# ]', ' ', description).lower()
+        description = sub(r'[^a-zA-Z.+# ]', ' ', description)
         for keyword in description.split():
             for category, tags in CATEGORIES.items():
                 if keyword in tags:
@@ -132,6 +130,3 @@ class Offer:
                 if tech.lower() in tags:
                     return category
         return 'Other'
-
-    def _generate_id(self):
-        return str(uuid4())
