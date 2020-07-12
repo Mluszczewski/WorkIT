@@ -40,7 +40,7 @@ class NoFluffJobs(Website):
                         experience=offer.get('seniority', None)
                     )
                 )
-            except ValueError:
+            except (ValueError, IndexError):
                 logger.info(f'Failed to create offer, values passed: {offer}')
                 continue
         return self.offers

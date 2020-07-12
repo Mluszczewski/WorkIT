@@ -81,7 +81,7 @@ class PracujJobs(Website):
                         )
                     else:
                         return None
-                except IndexError as err:
+                except (ValueError, IndexError) as err:
                     logger.info(
                         'List Index Out Of Range' +
                         f'Error Message {err}' +
